@@ -1,8 +1,9 @@
-<%= form_for(@reply) do |f| %>
+
+<%= form_for([@post, @comment, @reply]) do |f| %>
+
   <% if @reply.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@reply.errors.count, "error") %> prohibited this reply from being saved:</h2>
-
       <ul>
       <% @reply.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
@@ -11,15 +12,15 @@
     </div>
   <% end %>
 
+  <%= render 'shared/comment', comment: @comment %>
+
   <div class="field">
     <%= f.label :body %><br />
     <%= f.text_area :body %>
   </div>
-  <div class="field">
-    <%= f.label :Comment %><br />
-    <%= f.text_field :Comment %>
-  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>
+
 <% end %>

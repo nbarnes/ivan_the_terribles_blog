@@ -2,7 +2,7 @@ class RepliesController < ApplicationController
   # GET /replies
   # GET /replies.json
   def index
-    @replies = Reply.all
+    @replies = Reply.page(params[:page])
 
     respond_to do |format|
       format.html # index.html.erb
@@ -21,9 +21,16 @@ class RepliesController < ApplicationController
     end
   end
 
+  # GET /replies/1/edit
+  def edit
+    @reply = Reply.find(params[:id])
+  end
+
   # GET /replies/new
   # GET /replies/new.json
   def new
+    @post = Post.find(params[:post_id])
+    @comment = Comment.find(params[:comment_id])
     @reply = Reply.new
 
     respond_to do |format|
@@ -32,19 +39,16 @@ class RepliesController < ApplicationController
     end
   end
 
-  # GET /replies/1/edit
-  def edit
-    @reply = Reply.find(params[:id])
-  end
-
   # POST /replies
   # POST /replies.json
   def create
-    @reply = Reply.new(params[:reply])
+    post = Post.find(params[:post_id])
+    comment = Comment.find(params[:comment_id])
+    @reply = comment.replies.create(params[:reply])
 
     respond_to do |format|
       if @reply.save
-        format.html { redirect_to @reply, notice: 'Reply was successfully created.' }
+        format.html { redirect_to post_path(post), notice: 'Reply was successfully created.' }
         format.json { render json: @reply, status: :created, location: @reply }
       else
         format.html { render action: "new" }

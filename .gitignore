@@ -22,3 +22,9 @@
 .project
 __eclim_temp_Vagrantfile
 .rspec
+
+.DS_Store
+*/.DS_Store
+*/*/.DS_Store
+*/*/*/.DS_Store
+*/*/*/*/.DS_Store
