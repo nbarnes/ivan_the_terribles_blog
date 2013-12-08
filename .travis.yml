@@ -6,10 +6,11 @@ script:
 - RAILS_ENV=test bundle exec rake db:migrate --trace
 - bundle exec rake db:test:prepare
 - bundle exec rake
-bundler_args: --binstubs=./bundler_stubs
+bundler_args: "--binstubs=./bundler_stubs"
 deploy:
   provider: heroku
   api_key:
-    secure: dJorqYFF62fkQHnqQrU/tWRhdzBB3Zji4QGEhtln1ddAQL/k/hi1u/k18MtLYOdXm926DewAGb4iER5495C426vNBsIVqKR9z9vdecqnJAZqD3pIWpmLE1H03yqhZcXKRXT3HvX+3G0woKSi9RGQGj5CgOohjBQMH81fj7rgwWY=
+    secure: hP4CfsYGaT0v1JiyEcAKmaaNUK+xe/v3O2/WQh3xi5RPFObdN4/DnWnN5FBOx48vGKn45SVOGZUs+E1Dtid+nm7XSd2l0roMRIrcC9SWjYynhn+liKQ6YfzLDkl9xEBrV4XtCDF8CaiOTrd5rA61bJe00408JS9xDroU5hC/I00=
+  app: safe-taiga-9673
   on:
-    repo: nbarnes/ivan-the-terribles-blog
+    repo: nbarnes/ivan_the_terribles_blog
