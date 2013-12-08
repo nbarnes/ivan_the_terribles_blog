@@ -1,9 +1,11 @@
-# My New Blog!
+Overview
+========
+An improved and faster version of codefellows/ivan-the-terribles-blog.
 
-I've got a lot to say, and now I have a place to say it!!!!!
+Uses pagination and eager loading to speed things up.  Attempts to use
+Rack:Cache with Heroku as well, but that's not working yet (it appears that
+there's a max-age=0 problem causing the cache to immediately invalidate).
 
-Read all my amazing posts!!!!! You can load them into the app with: `rake load_blog:load_shit`
-
-Since I know you want to read them all, I designed my page to show EVERYTHING on the front page of the site!!!!!
-
-I know it is a little slow (but totes worth it!!!!)... _Do you know how I can make it faster?_
+Contact
+=======
+nbarnes@gmail.com
